@@ -79,6 +79,10 @@ kotlin {
 
     macosArm64()
 
+    wasmJs {
+        browser()
+    }
+
     // This makes sure that the resource file directory is visible for iOS tests.
     val rootDir = "${rootProject.rootDir.path}/quartz/src/commonTest/resources"
 
@@ -345,6 +349,20 @@ kotlin {
 
         val linuxX64Test by getting {
             dependsOn(linuxTest)
+        }
+
+        val wasmJsMain by getting {
+            dependsOn(commonMain.get())
+            dependencies {
+                // `cryptography-provider-apple-optimal` alias maps to `cryptography-provider-optimal`,
+                // a multiplatform library that automatically selects the best backend per target
+                // (WebCrypto on wasmJs, OpenSSL on Linux, Apple Security on Apple targets, etc.)
+                implementation(libs.dev.whyoleg.cryptography.provider.apple.optimal)
+            }
+        }
+
+        val wasmJsTest by getting {
+            dependsOn(commonTest.get())
         }
     }
 }
