@@ -24,7 +24,7 @@ import com.vitorpamplona.quartz.utils.RandomInstance
 import io.github.andreypfau.kotlinx.crypto.Sha512
 
 /**
- * Linux/Native Ed25519 implementation using pure Kotlin field arithmetic.
+ * wasmJs Ed25519 implementation using pure Kotlin field arithmetic.
  *
  * Implements RFC 8032 Ed25519 digital signatures.
  * Private key format: 32-byte seed + 32-byte public key (64 bytes total).

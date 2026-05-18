@@ -23,7 +23,7 @@ package com.vitorpamplona.quartz.marmot.mls.crypto
 import com.vitorpamplona.quartz.utils.RandomInstance
 
 /**
- * Linux/Native X25519 implementation using pure Kotlin field arithmetic.
+ * wasmJs X25519 implementation using pure Kotlin field arithmetic.
  *
  * Implements RFC 7748 X25519 Diffie-Hellman key agreement via Montgomery ladder.
  * Key format: raw 32-byte Curve25519 keys (little-endian per RFC 7748).

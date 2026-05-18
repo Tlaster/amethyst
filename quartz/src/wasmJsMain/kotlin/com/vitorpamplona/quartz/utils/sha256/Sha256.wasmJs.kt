@@ -34,8 +34,8 @@ actual fun sha256Into(
     data: ByteArray,
     len: Int,
 ): ByteArray {
-    // Linux cryptography provider doesn't support writing into existing buffer.
-    // Fall back to allocating and copying.
+    // cryptography-provider-optimal (WebCrypto on wasmJs) doesn't support writing into
+    // an existing buffer. Fall back to allocating and copying.
     val hash = sha256(if (len == data.size) data else data.copyOfRange(0, len))
     hash.copyInto(out)
     return out

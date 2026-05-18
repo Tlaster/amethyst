@@ -23,7 +23,7 @@ package com.vitorpamplona.quartz.nip01Core.cache.interning
 import com.vitorpamplona.quartz.nip01Core.core.Event
 import com.vitorpamplona.quartz.nip01Core.core.HexKey
 
-/** Linux native actual: passthrough. See `EventInterner.apple.kt`. */
+/** wasmJs actual: passthrough. See `EventInterner.apple.kt`. */
 actual class EventInterner {
     actual fun intern(event: Event): Event = event
 
